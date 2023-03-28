@@ -20,7 +20,8 @@ export default {
             @input="updateModelValue" @keyup.enter="submit" />
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="button" @click="submit">
-                <img src="../assets/search.PNG" style="width: 22px;"> Tìm kiếm
+                <img src="../assets/search.PNG" style="width: 22px;">
+                Tìm kiếm
             </button>
         </div>
     </div>

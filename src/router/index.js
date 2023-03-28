@@ -27,6 +27,13 @@ const routes = [
         component: () => import("@/views/ContactAdd.vue"),
     },
 
+    {
+        path: "/contact/favorite",
+        name: "contact.favorite",
+        component: () => import("@/views/ContactFavorite.vue"),
+    },
+
+
 ];
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
