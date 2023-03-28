@@ -10,9 +10,9 @@
             </h4>
             <ContactList v-if="filteredContactsCount > 0" :contacts="filteredContacts" v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào.</p>
-            <div class="mt-3 row justify-content-around align-items-center">
+            <div class="mt-4 row justify-content-around align-items-center">
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
-                    <i class="fas fa-redo"></i> Làm mới
+                    <i class="fa-sharp fa-regular fa-file"></i> Làm mới
                 </button>
                 <router-link :to="{
                     name: 'contact.add',
@@ -23,9 +23,29 @@
                 </router-link>
 
                 <button class="btn btn-sm btn-danger" @click="removeAllContacts">
-                    <i class="fas fa-trash"></i> Xóa tất cả
+                    <!-- <i class="fa-solid fa-trash"></i> -->
+                    <img src="../assets/delete.PNG" style="width: 13px;">
+                    Xóa tất cả
                 </button>
+
+
             </div>
+            <br>
+            <!-- <router-link to="{
+                name: 'con'
+            }">
+                <button class="btn btn-sm btn-success" @click="goToFavorite">
+                    <i class="fas fa-plus"></i> Danh sách liên hệ yêu thích
+                </button>
+            </router-link> -->
+            <router-link :to="{
+                name: 'contact.favorite',
+            }">
+                <button class="btn btn-sm btn-success" @click="goToFavorite">
+                    <i class="fa-solid fa-heart"></i>
+                    Danh sách liên hệ yêu thích
+                </button>
+            </router-link>
         </div>
         <div class="mt-3 col-md-6">
             <div v-if="activeContact">
@@ -117,6 +137,10 @@ export default {
         },
         goToAddContact() {
             this.$router.push({ name: "contact.add" });
+        },
+
+        goToFavorite() {
+            this.$router.get({ name: "contact.favorite" });
         },
     },
     mounted() {
